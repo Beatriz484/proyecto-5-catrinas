@@ -61,8 +61,8 @@ header h1 {
 }
 
 /* ========================================================
-   5. CAJA DE IMAGEN (IMAGE BOX)
-   Asegura que todas las fotos tengan la misma proporción
+5. CAJA DE IMAGEN (IMAGE BOX)
+Asegura que todas las fotos tengan la misma proporción
    ======================================================== */
 .image-box {
     width: 100%;
@@ -74,7 +74,7 @@ header h1 {
 .image-box img {
     width: 100%;
     height: 100%;
-    object-fit: cover;   /* Ajusta la foto sin deformarla (recorte inteligente) */
+    object-fit: cover;
     display: block;
 }
 
