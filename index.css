@@ -32,8 +32,9 @@ header h1 {
 }
 
 /* ========================================================
-   3. CONTENEDOR DE LA GALERÍA
-   Aplica la distribución básica usando Grid fluido
+main 
+CONTENEDOR DE LA GALERÍA
+Aplica la distribución básica usando Grid fluido
    ======================================================== */
 .gallery-container {
     display: grid;
@@ -44,7 +45,7 @@ header h1 {
 }
 
 /* ========================================================
-   4. TARJETAS INDIVIDUALES (GALLERY ITEM)
+4. TARJETAS INDIVIDUALES (GALLERY ITEM)
    ======================================================== */
 .gallery-item {
     border: 1px solid #ddd;
