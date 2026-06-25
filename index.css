@@ -1,121 +1,103 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 20px;
-    background-color: #f5f5f7; /* Fondo gris claro neutral que resalta los colores */
-    color: #222;
-}
-* 
-{
-    box-sizing: border-box;
+/* ==========================================================================
+   1. Estilos Generales y Base
+   ========================================================================== */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
     padding: 20px;
-    background-color: #f5f5f7; /* Fondo gris claro neutral que resalta los colores */
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 24px;
     color: #222;
 }
 
-/* ========================================================
-2.header h1
-Responsive Image Gallery-Catrinas
-   ======================================================== */
-header h1 {
-    text-align: center;
-    margin: 30px 0 50px 0;
-    font-size: 2.4rem;
-    font-weight: 400;
-    color: #111;
-    letter-spacing: 0.5px;
-}
-
-/* ========================================================
-main 
-CONTENEDOR DE LA GALERÍA
-Aplica la distribución básica usando Grid fluido
-   ======================================================== */
+/* ==========================================================================
+   2. Contenedor de la Galería (Flexbox Principal)
+   ========================================================================== */
 .gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;           /* Espacio uniforme entre todas las tarjetas */
-    max-width: 1200px;   /* Ancho máximo del contenedor en pantallas grandes */
-    margin: 0 auto;      /* Centra la galería en la pantalla */
+    display: flex;
+    flex-wrap: wrap;       /* Permite que los elementos pasen a la siguiente línea */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    gap: 20px;             /* Espacio uniforme entre cada tarjeta */
+    max-width: 1200px;     /* Ancho máximo de la galería */
+    margin: 0 auto;        /* Centra el contenedor en la pantalla */
 }
 
-/* ========================================================
-4. TARJETAS INDIVIDUALES (GALLERY ITEM)
-   ======================================================== */
+/* ==========================================================================
+   3. Componente de la Tarjeta (Item de la Galería)
+   ========================================================================== */
 .gallery-item {
-    border: 1px solid #ddd;
-    background-color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+    flex-direction: column; /* Alinea la imagen y el texto verticalmente */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    
+    /* Configuración por defecto para pantallas de escritorio (4 columnas) */
+    flex: 1 1 calc(25% - 20px); 
+    min-width: 250px; /* Evita que las tarjetas se deformen demasiado */
 }
 
-/* Efecto visual suave al pasar el cursor (Hover) */
-.gallery-item:hover {
-    border-color: #888;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-/* ========================================================
-5. CAJA DE IMAGEN (IMAGE BOX)
-Asegura que todas las fotos tengan la misma proporción
-   ======================================================== */
+/* Contenedor de la imagen */
 .image-box {
     width: 100%;
-    height: 260px;       /* Altura fija para unificar el tamaño de las tarjetas */
-    overflow: hidden;    /* Oculta lo que sobresalga del recorte */
-    background-color: #eaeaea;
+    overflow: hidden;
 }
 
+/* Estilo responsivo de la imagen interna */
 .image-box img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    display: block; /* Elimina espacio en blanco extra debajo de la imagen */
     object-fit: cover;
-    display: block;
 }
 
-/* ========================================================
-6. Add a description of the image here (DESC)
-   ======================================================== */
+/* Caja de descripción */
 .desc {
-    padding: 18px 12px;
+    padding: 15px 10px;
     text-align: center;
-    font-size: 0.95rem;
-    color: #444;
-    border-top: 1px solid #f0f0f0;
-    background-color: #ffffff;
+    font-size: 14px;
+    color: #555;
+    background-color: #fff;
+    margin-top: auto; /* Empuja la descripción siempre al fondo de la tarjeta */
 }
 
-/* ========================================================
-    (RESPONSIVE DESIGN)
+/* ==========================================================================
+   4. Media Queries (Diseño Responsivo)
+   ========================================================================== */
 
-   ======================================================== */
-
-/* MÓVILES (Pantallas de hasta 600px de ancho): 
-   Agrupa las imágenes en 1 sola columna vertical */
-@media (max-width: 600px) {
-    .gallery-container {
-        grid-template-columns: 1fr;
+/* Pantallas Medianas (Tabletas) - 2 Columnas */
+@media (max-width: 900px) {
+    .gallery-item {
+        flex: 1 1 calc(50% - 20px);
     }
 }
 
-/* TABLETS (Pantallas entre 601px y 950px): 
-   Agrupa las imágenes exactamente en filas de 2 columnas */
-@media (min-width: 601px) and (max-width: 950px) {
-    .gallery-container {
-        grid-template-columns: repeat(2, 1fr);
+/* Pantallas Pequeñas (Móviles) - 1 Columna */
+@media (max-width: 550px) {
+    .gallery-item {
+        flex: 1 1 100%;
     }
-}
-
-/* ORDENADORES / DESKTOP (Pantallas superiores a 951px): 
-   Agrupa las imágenes perfectamente en filas de 4 columnas */
-@media (min-width: 951px) {
-    .gallery-container {
-        grid-template-columns: repeat(4, 1fr);
+    
+    body {
+        padding: 10px;
+    }
+    
+    header h1 {
+        font-size: 20px;
     }
 }
