@@ -22,18 +22,20 @@ figcaption {
 text-align: center;
 }
 
-@media (max-width: 1024px) 
-figure {
+@media (max-width: 1024px) {
+  figure {
     flex-basis: calc(50% - 32px);
     margin: 13px 16px;
+  }
 }
 
-@media (max-width: 600px) 
-section {
+@media (max-width: 600px) {
+  section {
     justify-content: center;
-}
+  }
 
-figure {
+  figure {
     flex-basis: calc(100% - 32px);
     margin: 13px 16px;
+  }
 }
