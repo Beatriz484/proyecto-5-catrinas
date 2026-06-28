@@ -22,13 +22,13 @@ figcaption {
 text-align: center;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1024px) 
 figure {
     flex-basis: calc(50% - 32px);
     margin: 13px 16px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 600px) 
 section {
     justify-content: center;
 }
