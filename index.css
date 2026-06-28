@@ -1,103 +1,39 @@
-/* ==========================================================================
-   1. Estilos Generales y Base
-   ========================================================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+section {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+padding: 0;
+}
+figure {
+margin: 13px 26px;
+flex: 0 1 calc(25% - 52px);
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    padding: 20px;
+section img {
+width: 100%;
+height: auto;
+padding: 0;
+margin: 0;
+display: block;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 30px;
+figcaption {
+text-align: center;
 }
 
-header h1 {
-    font-size: 24px;
-    color: #222;
+@media (max-width: 1024px) {
+figure {
+    flex-basis: calc(50% - 32px);
+    margin: 13px 16px;
 }
 
-/* ==========================================================================
-   2. Contenedor de la Galería (Flexbox Principal)
-   ========================================================================== */
-.gallery-container {
-    display: flex;
-    flex-wrap: wrap;       /* Permite que los elementos pasen a la siguiente línea */
-    justify-content: center; /* Centra los elementos horizontalmente */
-    gap: 20px;             /* Espacio uniforme entre cada tarjeta */
-    max-width: 1200px;     /* Ancho máximo de la galería */
-    margin: 0 auto;        /* Centra el contenedor en la pantalla */
+@media (max-width: 600px) {
+section {
+    justify-content: center;
 }
 
-/* ==========================================================================
-   3. Componente de la Tarjeta (Item de la Galería)
-   ========================================================================== */
-.gallery-item {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 10px;
-    display: flex;
-    flex-direction: column; /* Alinea la imagen y el texto verticalmente */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    
-    /* Configuración por defecto para pantallas de escritorio (4 columnas) */
-    flex: 1 1 calc(25% - 20px); 
-    min-width: 250px; /* Evita que las tarjetas se deformen demasiado */
-}
-
-/* Contenedor de la imagen */
-.image-box {
-    width: 100%;
-    overflow: hidden;
-}
-
-/* Estilo responsivo de la imagen interna */
-.image-box img {
-    width: 100%;
-    height: auto;
-    display: block; /* Elimina espacio en blanco extra debajo de la imagen */
-    object-fit: cover;
-}
-
-/* Caja de descripción */
-.desc {
-    padding: 15px 10px;
-    text-align: center;
-    font-size: 14px;
-    color: #555;
-    background-color: #fff;
-    margin-top: auto; /* Empuja la descripción siempre al fondo de la tarjeta */
-}
-
-/* ==========================================================================
-   4. Media Queries (Diseño Responsivo)
-   ========================================================================== */
-
-/* Pantallas Medianas (Tabletas) - 2 Columnas */
-@media (max-width: 900px) {
-    .gallery-item {
-        flex: 1 1 calc(50% - 20px);
-    }
-}
-
-/* Pantallas Pequeñas (Móviles) - 1 Columna */
-@media (max-width: 550px) {
-    .gallery-item {
-        flex: 1 1 100%;
-    }
-    
-    body {
-        padding: 10px;
-    }
-    
-    header h1 {
-        font-size: 20px;
-    }
+figure {
+    flex-basis: calc(100% - 32px);
+    margin: 13px 16px;
 }
